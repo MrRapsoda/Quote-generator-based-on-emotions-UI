@@ -1,20 +1,14 @@
-//Se mapean los botones de la vista
-button_confundido = document.getElementById('confundido');
-button_tranquilo = document.getElementById('tranquilo');
-button_feliz = document.getElementById('feliz');
-button_analizo = document.getElementById('analizo');
-button_creativo = document.getElementById('creativo');
-button_triste = document.getElementById('triste');
+$(document).ready(function(){
+    /*Put the background to the active button, and remove from 
+his siblings*/
+    $('.button').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+        $(this).css('backgroundImage','url("../imgs/trace1.png")');
+        $(this).siblings().css('backgroundImage','none');
+        var button_id = $(this).attr('id');
+    });    
+});
 
 
-//Funcion para añadir clase .active y colocar el fondo.
-button_group = document.getElementsByClassName("button");
 
-for (i = 0; i < button_group.length; i++) {
-    button_group[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        if (this.classList.contains('active')) {
-            this.style.backgroundImage = 'url("../imgs/trace1.png")';
-        }
-    });
-}
+
